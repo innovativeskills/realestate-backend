@@ -103,13 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://realestateback.innovativeskillsbd.com/",
+    "https://realestateback.innovativeskillsbd.com",
 ]
 
-# Optionally, allow all origins (less secure)
-# CORS_ALLOW_ALL_ORIGINS = True
-
-# Allow specific HTTP methods (optional)
 CORS_ALLOW_METHODS = [
     "GET",
     "POST",
