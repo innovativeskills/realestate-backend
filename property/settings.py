@@ -11,12 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-import os
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -27,8 +24,7 @@ SECRET_KEY = 'django-insecure-d$gza3(2u2zx4pb!%@x%osjhbxt09ct5et+*ln06=ra9ibu-5=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://realestateback.innovativeskillsbd.com/']
-
+ALLOWED_HOSTS = ['realestateback.innovativeskillsbd.com']
 
 # Application definition
 
@@ -41,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'propertySite',
     'corsheaders',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -75,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'property.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -86,6 +80,25 @@ DATABASES = {
     }
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "https://realestateback.innovativeskillsbd.com",
+]
+
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+]
+
+CORS_ALLOW_HEADERS = [
+    "authorization",
+    "content-type",
+    "x-csrftoken",
+    "x-requested-with",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -105,29 +118,29 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://realestateback.innovativeskillsbd.com/",
-]
+# Internationalization
+# https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-CORS_ALLOW_METHODS = [
-    "GET",
-    "POST",
-    "PUT",
-    "PATCH",
-    "DELETE",
-    "OPTIONS",
-]
+LANGUAGE_CODE = 'en-us'
 
-# Allow specific headers (optional)
-CORS_ALLOW_HEADERS = [
-    "authorization",
-    "content-type",
-    "x-csrftoken",
-    "x-requested-with",
-]
+TIME_ZONE = 'UTC'
 
+USE_I18N = True
 
+USE_TZ = True
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logging configuration
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -146,27 +159,3 @@ LOGGING = {
         },
     },
 }
-
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
