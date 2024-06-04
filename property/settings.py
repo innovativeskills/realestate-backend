@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-94tk-va4!gh9i*sjncnb3v2q+vajm$cer(8igpqhlcz-!nc-cj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://realestateback.innovativeskillsbd.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['realestateback.innovativeskillsbd.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
