@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://realestateback.innovativeskillsbd.com",
+    "realestateback.innovativeskillsbd.com",
 ]
 
 CORS_ALLOW_METHODS = [
