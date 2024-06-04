@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'propertySite',
     'banner',
     'companysummary',
+    'clientreview',
 ]
 
 MIDDLEWARE = [
