@@ -49,6 +49,14 @@ class MembershipView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def patch(self, request, pk, format=None): 
+        membership_data = self.get_object(pk)
+        serializer = MembershipSerializer(membership_data, data=request.data, partial=True)  
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     def delete(self, request, pk, format=None):
         membership_data = self.get_object(pk)
         membership_data.delete()

@@ -17,3 +17,18 @@ class ContactInfo(models.Model):
     class Meta:
         verbose_name = "Contact Info"
         verbose_name_plural = "Contact Info"
+        
+        
+class UserContact(models.Model):
+    name = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField()
+    subject = models.CharField(max_length=500)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Get In Touch"
+        verbose_name_plural = "Get In Touch"

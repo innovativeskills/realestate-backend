@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'clientreview',
     'membership',
     'contactinfo',
+    'teammember',
+    'investment',
 ]
 
 MIDDLEWARE = [

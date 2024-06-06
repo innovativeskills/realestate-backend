@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ContactInfo
+from .models import ContactInfo,UserContact
 
 class ContactInfoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,3 +8,10 @@ class ContactInfoSerializer(serializers.ModelSerializer):
             'id', 'name', 'email', 'phone_number_one', 'phone_number_two',
             'address', 'facebook_link', 'instagram_link', 'linkedin_link', 'youtube_link'
         ]
+        
+        
+class UserContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserContact
+        fields = [
+            'id', 'name', 'phone_number', 'email',  'subject','message']
