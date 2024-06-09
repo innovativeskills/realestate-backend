@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'ckeditor',
+    # 'ckeditor_uploader',
     'propertySite',
     'banner',
     'companysummary',
@@ -55,6 +57,12 @@ INSTALLED_APPS = [
     'contactinfo',
     'teammember',
     'investment',
+    'project',
+    'projectSummary',
+    'masterplan',
+    'masterplanDetails',
+    'position',
+    'clientProjectRequest',
 ]
 
 MIDDLEWARE = [

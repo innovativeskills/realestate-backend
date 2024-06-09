@@ -1,4 +1,5 @@
 from django.db import models
+from position.models import Position
 from django.utils.translation import gettext_lazy as _
 
 
@@ -17,6 +18,7 @@ class AboutUs(models.Model):
         verbose_name_plural = _("About Us")
 
 class TeamMember(models.Model):
+    position = models.ForeignKey(Position, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, verbose_name=_("Name"))
     description = models.TextField(verbose_name=_("Description"))
     image = models.ImageField(upload_to='teammember/', verbose_name=_("Image"))
