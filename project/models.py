@@ -12,7 +12,13 @@ class Project(models.Model):
 
     def __str__(self):
         return self.project_name
+    
+    @property
+    def description_list(self):
+        if self.description:
+            return [item.strip() for item in self.description.split('|')]
+        return []
 
     class Meta:
-        verbose_name = "Company Summary"
-        verbose_name_plural = "Company Summaries"
+        verbose_name = "Project"
+        verbose_name_plural = "Projects"

@@ -6,8 +6,8 @@ from django.http import HttpResponse, Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import ContactInfoSerializer,UserContactSerializer
-from .models import ContactInfo,UserContact
+from .serializers import ContactInfoSerializer, UserContactSerializer, ContactUsSerializer
+from .models import ContactInfo, UserContact, ContactUs
 
 import logging
 
@@ -111,6 +111,57 @@ class UserContactView(APIView):
     def delete(self, request, pk, format=None):
         user_data = self.get_object(pk)
         user_data.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+#****************************************************************************# 
+                        #*****END THIS SECTION*******#
+#****************************************************************************# 
+
+# ContactUs Model API Class View.
+class ContactUsView(APIView):
+    
+    def get_object(self, pk):
+        try:
+            return ContactUs.objects.get(pk=pk)
+        except ContactUs.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk=None, format=None):
+        if pk:
+            contactus_data = self.get_object(pk)
+            serializer = ContactUsSerializer(contactus_data)
+        else:
+            contactus_data = ContactUs.objects.all()  # Corrected from ContactInfo to UserContact
+            serializer = ContactUsSerializer(contactus_data, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = ContactUsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, pk, format=None):
+        contactus_data = self.get_object(pk)
+        serializer = ContactUsSerializer(contactus_data, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def patch(self, request, pk, format=None):  # Added patch method
+        contactus_data = self.get_object(pk)
+        serializer = ContactUsSerializer(contactus_data, data=request.data, partial=True)  # partial=True allows partial updates
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        contactus_data = self.get_object(pk)
+        contactus_data.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 

@@ -16,7 +16,7 @@ class MasterplanDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MasterplanDetails
-        fields = ['id', 'project', 'masterplan', 'facilities', 'youtube_url', 'image_floorplan', 'gallery_images', 'gallery_images_upload']
+        fields = ['id', 'project', 'masterplan', 'facilities', 'youtube_url', 'image_floorplan', 'floorplan_pdf', 'gallery_images', 'gallery_images_upload']
 
     def create(self, validated_data):
         gallery_images_data = validated_data.pop('gallery_images_upload')

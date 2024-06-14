@@ -36,6 +36,7 @@ urlpatterns = [
     path('api/', include('masterplanDetails.urls')),
     path('api/', include('position.urls')),
     path('api/', include('clientProjectRequest.urls')),
+    path('', include('propertySite.urls')),
    
     
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

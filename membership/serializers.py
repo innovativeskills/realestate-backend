@@ -4,4 +4,5 @@ from .models import Membership
 class MembershipSerializer(serializers.ModelSerializer):
     class Meta:
         model = Membership
-        fields = ['id', 'title', 'description', 'image']
+        fields = ['id', 'title', 'description', 'facilities', 'image']
+        
